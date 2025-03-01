@@ -19,6 +19,11 @@ class Vertices:
         self.x_min = min(v[0] for v in self.vertices)
         self.y_min = min(v[1] for v in self.vertices)
 
+        self.centroid=(
+            sum(v[0] for v in self.vertices)/self.n,
+            sum(v[1] for v in self.vertcies)/self.n
+        )
+
     def plot_vertices(self):
         # plt.figure(figsize=(8, 8))
         # plt.xlim(self.x_min - 10, self.x_max + 10)
@@ -129,11 +134,14 @@ if __name__ == "__main__":
     
     # Choose the best list
     best_list = clock_scan_obj.choose_correct_one(sorted_lists)
+
+    # Generates Centroid:
+    centroid= vertices_obj.centroid
     
     if best_list:
         print(f"The chosen list is: {best_list}")
         connection(best_list)  # Pass the best_list to the connection function
     else:
         print("No suitable Hamiltonian cycle found.")
-        connection(clock_scan_obj.scan_clockwise([0,0],vertices_obj.vertices))  
+        connection(clock_scan_obj.scan_clockwise(centroid,vertices_obj.vertices))  
     print("finished")
