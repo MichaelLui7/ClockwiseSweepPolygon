@@ -21,9 +21,10 @@ cd ClockwiseSweepPolygon
 
 ## Install dependencies (Python 3.6+ required)
 pip install -r requirements.txt
+```
 
 
-### Core Components
+## Core Components
 
 ### 1. Polygon Construction (Connected_Graph_2nd.py)
 Implements a robust algorithm for constructing simple polygons through systematic vertex processing:
